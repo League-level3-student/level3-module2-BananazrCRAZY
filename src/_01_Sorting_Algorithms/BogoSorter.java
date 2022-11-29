@@ -19,7 +19,17 @@ public class BogoSorter extends Sorter {
      * STEP 3. Go back to step 1.
      */
     @Override
-    void sort(int[] array, SortingVisualizer display) {
-        
+    void sort(int[] arr, SortingVisualizer display) {
+        for (int i = 1; i < arr.length; i++) {
+        	if (!(arr[i]>arr[i-1])) {
+        		int num1 = (int) (Math.random() * arr.length);
+        		int num2 = (int) (Math.random() * arr.length);
+        		int temp = arr[num1];
+        		arr[num1] = arr[num2];
+        		arr[num2] = temp;
+        		display.updateDisplay();
+        		i = 0;
+        	}
+        }
     }
 }
